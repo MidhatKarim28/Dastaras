@@ -16,7 +16,7 @@ _Last updated: 2026-09-27_
 
 ## MVP decisions (2026-09-27)
 
-These came out of reviewing the old FYP schema against the new one. The full mapping is in [Parked from the FYP schema](#parked-from-the-fyp-schema).
+These came out of reviewing the v1 prototype schema against the new one. The full mapping is in [Parked from the v1 prototype](#parked-from-the-v1-prototype).
 
 - **No CNIC in the MVP.** Accounts use an internal id. CNIC returns in Phase 5, for provider verification only.
 - **Ratings are one-way:** clients rate providers.
@@ -43,6 +43,8 @@ These came out of reviewing the old FYP schema against the new one. The full map
 - [ ] **Bug:** two overlapping pending bookings accepted at the same moment can both succeed (double booking). Fix: advisory lock per provider, or an exclusion constraint _(decision needed)_
 - [ ] Pending requests whose time has passed: auto-decline, hide, or leave? _(decision needed)_
 - [ ] Block accept/start for jobs whose time has passed, or start earlier than N hours before? _(decision needed)_
+- [ ] Check layouts on a real phone (≈360–390 px): the header may be too crowded
+- [ ] Listing cards: long provider names get cut off next to the price in the 3-column grid
 - [ ] Fix the existing Biome errors (`seed.ts` PRNG assignment, `lib/bookings.ts` optional chain)
 - [ ] Update the status section in `CLAUDE.md`
 
@@ -58,7 +60,8 @@ These came out of reviewing the old FYP schema against the new one. The full map
 - [ ] Demo data strategy for production (a read-only seed, or a nightly reset)
 - [ ] Error tracking (e.g. Sentry) for web and API
 - [ ] SEO basics: sitemap, robots, Open Graph images for listings
-- [ ] README: architecture diagram, screenshots, demo link, "how it works"
+- [x] README: banner, screenshots, architecture + booking lifecycle diagrams, setup guide
+- [ ] README: dashboard screenshots, light-mode shots from a production build, live demo link
 
 ## Phase 2 — Engagement
 
@@ -67,7 +70,7 @@ These came out of reviewing the old FYP schema against the new one. The full map
 - [ ] Email verification and password reset (Better Auth + an email provider such as Resend)
 - [ ] Email notifications on request, accept, decline, cancel and complete
 - [ ] Real-time booking updates on the dashboard and the booking page (SSE first)
-- [ ] Per-booking chat. New `message` table: `booking_id`, `sender_id`, `body`, `created_at`, `read_at` (replaces the FYP `message` table)
+- [ ] Per-booking chat. New `message` table: `booking_id`, `sender_id`, `body`, `created_at`, `read_at` (replaces the v1 `message` table)
 - [ ] In-app notification bell with unread count
 - [ ] Provider availability: working hours and blocked dates, checked when booking
 
@@ -75,9 +78,9 @@ These came out of reviewing the old FYP schema against the new one. The full map
 
 **Gate:** clients can find nearby pros and trust what they see.
 
-- [ ] Locations: PostGIS point on listings/profiles, "near me" search and distance sort (replaces FYP `provider_location` / `client_location`)
+- [ ] Locations: PostGIS point on listings/profiles, "near me" search and distance sort (replaces v1 `provider_location` / `client_location`)
 - [ ] Map view on web (Leaflet or MapLibre)
-- [ ] Image uploads to Cloudflare R2/S3 via presigned URLs: avatars, listing photos (replaces FYP `BYTEA` pictures)
+- [ ] Image uploads to Cloudflare R2/S3 via presigned URLs: avatars, listing photos (replaces v1 `BYTEA` pictures)
 - [ ] Phone OTP sign-in (Better Auth `phoneNumber` plugin; SMS credentials from env, **never committed**)
 - [ ] AI helper: "describe your problem" → suggested service and price range
 - [ ] Favourites and "book again"
@@ -100,7 +103,7 @@ These came out of reviewing the old FYP schema against the new one. The full map
 
 - [ ] Admin panel (the `admin` role already exists): users, listings, bookings
 - [ ] Provider verification with CNIC: stored encrypted, shown masked, never a key. Drives the "Verified" badge
-- [ ] Reports and moderation: warnings, suspension (replaces FYP `warning_count`)
+- [ ] Reports and moderation: warnings, suspension (replaces v1 `warning_count`)
 - [ ] Dispute flow for completed or cancelled bookings
 - [ ] Revisit provider → client ratings (see decision log)
 - [ ] Rate limiting on public routes; OpenAPI docs (`hono-openapi`)
@@ -124,9 +127,9 @@ These came out of reviewing the old FYP schema against the new one. The full map
 - Quotes for jobs that can't be priced by the hour
 - Referral codes and promotions
 
-## Parked from the FYP schema
+## Parked from the v1 prototype
 
-| Old FYP item | Decision now | Revisit in |
+| v1 prototype item | Decision now | Revisit in |
 |---|---|---|
 | `client.cnic` / `provider.cnic` as primary keys | Left out; internal ids instead | Phase 5 (verification only) |
 | `provider_to_client_rating` | One-way ratings only | Phase 5 |
