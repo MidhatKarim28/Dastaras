@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 688" role="img" aria-label="Seven phases take Dastaras from MVP to a full marketplace with a mobile app" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif" font-size="13">
+  <style>
+    .bg { fill: #ffffff; }
+    .ink { fill: #1d2b2e; }
+    .quiet { fill: #5b6b6e; }
+    .box { fill: none; stroke: #9aa9ab; stroke-width: 1.25; }
+    .now { fill: #0f766e; fill-opacity: 0.1; stroke: #0f766e; stroke-width: 2; }
+    .line { stroke: #9aa9ab; stroke-width: 1.25; }
+    .gate { fill: #fef3c7; stroke: #d97706; stroke-width: 1.25; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #111a1c; }
+      .ink { fill: #e8efee; }
+      .quiet { fill: #a3b1b3; }
+      .box, .line { stroke: #4d5c5f; }
+      .now { fill: #5eead4; fill-opacity: 0.12; stroke: #5eead4; }
+      .gate { fill: #3b2f14; stroke: #f59e0b; }
+    }
+  </style>
+  <rect class="bg" width="760" height="688" rx="12"/>
+  <text class="ink" x="24" y="34" font-size="15" font-weight="600">Seven phases take Dastaras from MVP to a full marketplace</text>
+
+  <!-- connectors with gates (diamonds) between phases -->
+  <g>
+    <line class="line" x1="56" x2="56" y1="112" y2="148"/><path class="gate" d="M56 122l8 8l-8 8l-8 -8z"/>
+    <line class="line" x1="56" x2="56" y1="204" y2="240"/><path class="gate" d="M56 214l8 8l-8 8l-8 -8z"/>
+    <line class="line" x1="56" x2="56" y1="296" y2="332"/><path class="gate" d="M56 306l8 8l-8 8l-8 -8z"/>
+    <line class="line" x1="56" x2="56" y1="388" y2="424"/><path class="gate" d="M56 398l8 8l-8 8l-8 -8z"/>
+    <line class="line" x1="56" x2="56" y1="480" y2="516"/><path class="gate" d="M56 490l8 8l-8 8l-8 -8z"/>
+    <line class="line" x1="56" x2="56" y1="572" y2="608"/><path class="gate" d="M56 582l8 8l-8 8l-8 -8z"/>
+  </g>
+
+  <rect class="now" x="24" y="56" width="712" height="56" rx="8"/>
+  <text class="ink" x="40" y="80" font-weight="600">Phase 0 · Finish the MVP (now)</text>
+  <text class="quiet" x="40" y="98" font-size="11.5">Database up, tests green, web app verified end to end, lint clean</text>
+  <text class="quiet" x="76" y="134" font-size="11.5">Gate: the full booking loop works locally (sign up, book, accept, complete, review)</text>
+
+  <rect class="box" x="24" y="148" width="712" height="56" rx="8"/>
+  <text class="ink" x="40" y="172" font-weight="600">Phase 1 · Launch-ready</text>
+  <text class="quiet" x="40" y="190" font-size="11.5">CI, Playwright E2E, README with screenshots, deploy (web on Vercel, API on Railway or Fly, Postgres on Neon)</text>
+  <text class="quiet" x="76" y="226" font-size="11.5">Gate: public demo URL, CI green on every push</text>
+
+  <rect class="box" x="24" y="240" width="712" height="56" rx="8"/>
+  <text class="ink" x="40" y="264" font-weight="600">Phase 2 · Engagement</text>
+  <text class="quiet" x="40" y="282" font-size="11.5">Real-time booking updates, per-booking chat, email notifications, provider availability</text>
+  <text class="quiet" x="76" y="318" font-size="11.5">Gate: a job can be arranged without leaving the app</text>
+
+  <rect class="box" x="24" y="332" width="712" height="56" rx="8"/>
+  <text class="ink" x="40" y="356" font-weight="600">Phase 3 · Reach and identity</text>
+  <text class="quiet" x="40" y="374" font-size="11.5">Maps and "near me", phone OTP sign-in, avatars and listing photos, AI service suggestion</text>
+  <text class="quiet" x="76" y="410" font-size="11.5">Gate: clients can find nearby pros and trust what they see</text>
+
+  <rect class="box" x="24" y="424" width="712" height="56" rx="8"/>
+  <text class="ink" x="40" y="448" font-weight="600">Phase 4 · Payments</text>
+  <text class="quiet" x="40" y="466" font-size="11.5">Online payments, platform commission, provider payouts and earnings history</text>
+  <text class="quiet" x="76" y="502" font-size="11.5">Gate: money moves through the platform end to end</text>
+
+  <rect class="box" x="24" y="516" width="712" height="56" rx="8"/>
+  <text class="ink" x="40" y="540" font-weight="600">Phase 5 · Trust and operations</text>
+  <text class="quiet" x="40" y="558" font-size="11.5">Admin panel, CNIC verification, moderation and warnings, disputes, rate limits, monitoring</text>
+  <text class="quiet" x="76" y="594" font-size="11.5">Gate: one admin can run the platform safely</text>
+
+  <rect class="box" x="24" y="608" width="712" height="56" rx="8"/>
+  <text class="ink" x="40" y="632" font-weight="600">Phase 6 · Mobile app</text>
+  <text class="quiet" x="40" y="650" font-size="11.5">Expo app on the same API and shared packages, push notifications</text>
+</svg>

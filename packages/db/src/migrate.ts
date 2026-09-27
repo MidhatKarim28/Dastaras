@@ -1,0 +1,14 @@
+import { fileURLToPath } from "node:url";
+import { config } from "dotenv";
+import { migrate } from "drizzle-orm/node-postgres/migrator";
+import { createDb } from "./index";
+
+config({ path: fileURLToPath(new URL("../../../.env", import.meta.url)) });
+
+const url = process.env.DATABASE_URL;
+if (!url) throw new Error("DATABASE_URL is not set");
+
+const { db, pool } = createDb(url);
+await migrate(db, { migrationsFolder: fileURLToPath(new URL("../drizzle", import.meta.url)) });
+console.log("✔ migrations applied");
+await pool.end();
